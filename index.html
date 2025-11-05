@@ -1,0 +1,120 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Help-me Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="chatIA.css" />
+    <link rel="stylesheet" href="global.css" />
+
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">H</span>
+            <span class="logo-text">Help-me</span>
+        </div>
+        <nav>
+          <ul>
+                <li><a href="dashboard.html" class="nav-item"> Dashboard</a></li>
+                <li><a href="index.html" class="nav-item" > Abrir Chamado</a></li>
+                <li><a href="configuração.html" class="nav-item"> Configurações</a></li>
+                <li><a href="login.html" class="nav-item">Sair</a></li>
+           </ul>
+    </nav>
+
+  </aside>
+
+  <main>
+        <header class="main-header">
+        <div class="search-container">
+            <input 
+            type="search" 
+            placeholder="Pesquisar chamados..." 
+            aria-label="Pesquisar chamados" 
+            />
+        </div>
+
+                <div class="header-icons">
+                    <button class="icon-btn" aria-label="Notificações">
+                        <i class="bi bi-bell"></i>
+                    </button>
+                    <button class="icon-btn profile" aria-label="Perfil do usuário">
+                        <i class="bi bi-person-circle"></i>
+                    </button>
+             </div>
+
+        </header>
+
+        <section class="content">
+                <div class="content-header">
+                    <button class="new-ticket-btn" href="novochamado.html">+ Novo Chamado</button>
+                </div>
+
+                <div class="recent-tickets">
+                    <div class="tickets-header">
+                        <span class="ticket-type">Últimos Chamados</span>
+                        <span class="status-label">Status</span>
+                    </div>
+
+                    <ul class="ticket-list">
+                    <li class="ticket">
+                        <div class="ticket-info">
+                            <strong>Problema de conexão de VPN</strong>
+                            <p class="ticket-desc">VPN não conecta corretamente...</p>
+                        </div>
+                        <span class="status em-analise">Em Análise</span>
+                    </li>
+
+                    <li class="ticket">
+                        <div class="ticket-info">
+                            <strong>Solicitação de instalação de software</strong>
+                            <p class="ticket-desc">Necessário instalar ferramenta de design gráfico...</p>
+                        </div>
+                        <span class="status finalizado">Finalizado</span>
+                    </li>
+
+                    <li class="ticket">
+                        <div class="ticket-info">
+                            <strong>Computador não liga</strong>
+                            <p class="ticket-desc">O computador não inicia mesmo conectado à energia....</p>
+                        </div>
+                        <span class="status pendente">Pendente</span>
+                    </li>
+                   
+                </div>
+        </section>
+  </main>
+               <div class="chat-bot-widget">
+        <button class="bot-icon" id="open-chat" aria-label="Abrir assistente virtual">
+            <i class="bi bi-robot"></i> Ajuda Inteligente
+        </button>
+
+        <div class="chat-box hidden" id="chat-box">
+            <div class="chat-header">
+                <span>Ajuda Inteligente</span>
+                <button id="close-chat" class="close-btn">✖</button>
+            </div>
+
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot">
+                    <p>Olá! 😊 Sou a assistente virtual do Help-me. Como posso te ajudar hoje?</p>
+                </div>
+            </div>
+
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Digite sua pergunta..." />
+                <button id="send-btn">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js" defer></script>
+    <script src="chatIA.js" defer></script>
+    
+</body>
+</html>

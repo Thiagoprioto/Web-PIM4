@@ -1,0 +1,139 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+  background-color: #f9f9fb;
+  color: #222;
+}
+
+/* VARIÁVEIS */
+:root {
+  --sidebar-bg: linear-gradient(160deg, #2e1549 0%, #311e6f 100%);
+  --primary: #764dfc;
+  --accent: #ce3e99;
+  --text-light: #b3b3b3;
+  --text-dark: #222;
+  --card-bg: #fff;
+  --shadow: 0 8px 25px rgb(0 0 0 / 0.1);
+}
+
+.nav-menu ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.nav-menu li {
+  margin-bottom: 12px;
+}
+
+.nav-item {
+  color: var(--text-light);
+  text-decoration: none;
+  display: block;
+  padding: 12px 24px;
+  border-left: 4px solid transparent;
+  transition: 0.3s;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  border-left: 4px solid var(--accent);
+  color: #fff;
+}
+
+.bot-icon {
+  background-color: #5d34a3;
+  border: none;
+  text-align: center;
+  padding: 18px 0;
+  font-size: 26px;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+.profile {
+  background: var(--primary);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+
+.content {
+  margin-top: 32px;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.content-header h2 {
+  color: #311e6f;
+  font-size: 22px;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-btn {
+  border: none;
+  background: #e7e4f5;
+  color: #311e6f;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  color: white;
+}
+
+/* CARDS DE GRÁFICOS */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 16px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card h3 {
+  color: #311e6f;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
