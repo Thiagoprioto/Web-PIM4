@@ -155,3 +155,32 @@ ul {
 .pendente {
     background-color: #95a5a6;
 }
+
+/* Grid para os gráficos */
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas de tamanho igual */
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+/* Contêiner individual do gráfico */
+.chart-container {
+    background: #fafafa;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgb(0 0 0 / 0.05);
+    transition: transform 0.2s ease;
+}
+
+.chart-container:hover {
+    transform: scale(1.005); 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container h3 {
+    margin-bottom: 16px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+}

@@ -1,0 +1,144 @@
+/*
+==================================
+ESTILOS PARA DETALHES DO CHAMADO
+==================================
+*/
+
+.ticket-details-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.ticket-main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 24px;
+}
+
+.ticket-main-header h2 {
+    font-size: 28px;
+    color: #333;
+}
+
+.ticket-body {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Descrição maior, detalhes menor */
+    gap: 32px;
+}
+
+.ticket-description h3,
+.ticket-metadata h3,
+.ticket-history h3,
+.ticket-reply h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 16px;
+}
+
+.ticket-description p {
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+.ticket-metadata {
+    background: #fafafa;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #f0f0f0;
+    height: fit-content; /* Para se ajustar ao conteúdo */
+}
+
+.ticket-metadata ul {
+    list-style: none;
+}
+
+.ticket-metadata ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 14px;
+}
+.ticket-metadata ul li:not(:last-child) {
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.ticket-metadata ul li strong {
+    color: #333;
+}
+
+.ticket-metadata ul li span {
+    color: #666;
+}
+
+.priority-alta {
+    color: #e74c3c;
+    font-weight: 700;
+}
+
+/* Histórico */
+.ticket-history {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #eee;
+}
+
+.history-item {
+    background: #fafafa;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+/* Item de sistema/bot */
+.history-item.bot {
+    background: #f5f3ff;
+    border-color: #e0d9ff;
+}
+
+.history-meta {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 8px;
+}
+.history-meta strong {
+    color: #311e6f; /* Cor roxa principal */
+}
+
+.history-comment {
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Resposta */
+.ticket-reply {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #eee;
+}
+
+.ticket-reply textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff;
+    transition: 0.2s ease border-color, 0.2s ease box-shadow;
+    margin-bottom: 16px;
+}
+
+.ticket-reply textarea:focus {
+    outline: none;
+    border-color: #764dfc;
+    box-shadow: 0 0 0 3px rgba(118, 77, 252, 0.2);
+}
+
+.ticket-reply form {
+    text-align: right;
+}
