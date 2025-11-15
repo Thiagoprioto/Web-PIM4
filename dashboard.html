@@ -1,105 +1,84 @@
 <!DOCTYPE html>
- <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Help-me | Relatórios e Métricas</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <link rel="stylesheet" href="global.css" />
-        <link rel="stylesheet" href="dash.css" />
-         <link rel="stylesheet" href="chatIA.css" />
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help-me | Relatórios e Métricas</title>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
-    </head>
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="dash.css" />
+    <link rel="stylesheet" href="chatIA.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">H</span>
+            <span class="logo-text">Help-me</span>
+        </div>
+        <nav class="nav-menu"> <ul>
+                <li><a href="dashboard.html" class="nav-item active"> Dashboard</a></li>
+                <li><a href="index.html" class="nav-item"> Abrir Chamado</a></li>
+                <li><a href="configuração.html" class="nav-item"> Configurações</a></li>
+                <li><a href="login.html" class="nav-item">Sair</a></li>
+            </ul>
+        </nav>
+    </aside>
 
-    <body>
-            <aside class="sidebar">
-                <div class="logo">
-                    <span class="logo-icon">H</span>
-                    <span class="logo-text">Help-me</span>
+    <main>
+        <header class="main-header">
+            <div class="search-container">
+                <input type="search" placeholder="Pesquisar gráfico..." />
+            </div>
+           <div class="header-icons">
+                <button class="icon-btn" aria-label="Notificações">
+                    <i class="bi bi-bell"></i>
+                </button>
+                <button class="icon-btn profile" aria-label="Perfil do usuário">
+                    <i class="bi bi-person-circle"></i>
+                </button>
+            </div>
+        </header>
+
+        <section class="content">
+            <div class="content-header">
+                <h2>Relatórios e Métricas</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn">Últimos 7 Dias</button>
+                    <button class="filter-btn">Últimos 30 Dias</button>
+                    <button class="filter-btn">Personalizado</button>
                 </div>
+            </div>
+            
+            <section class="dashboard-stats">
+                <div class="chart-container">
+                    <h3>Chamados por Status</h3>
+                    <canvas id="statusChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Chamados por Categoria</h3>
+                    <canvas id="categoryChart"></canvas>
+                </div>
+            </section>
+        </section>
+    </main>
 
-                <nav class="nav-menu">
-                    <ul>
-                            <li><a href="dashboard.html" class="nav-item"> Dashboard</a></li>
-                            <li><a href="index.html" class="nav-item " > Abrir Chamado</a></li>
-                            <li><a href="configuração.html" class="nav-item"> Configurações</a></li>
-                            <li><a href="login.html" class="nav-item">Sair</a></li>
-                    </ul>
-               
-                </nav>
-
-             
-            </aside>
-
-            <main>
-                <header class="main-header">
-                    <div class="search-container">
-                        <input type="search" placeholder="Pesquisar gráfico..." />
-                    </div>
-
-                   <div class="header-icons">
-                            <button class="icon-btn" aria-label="Notificações">
-                                <i class="bi bi-bell"></i>
-                            </button>
-                            <button class="icon-btn profile" aria-label="Perfil do usuário">
-                                <i class="bi bi-person-circle"></i>
-                            </button>
-                    </div>
-
-                </header>
-
-                <section class="content">
-                    <div class="content-header">
-                            <h2>Relatórios e Métricas</h2>
-                                <div class="filter-buttons">
-                                    <button class="filter-btn">Últimos 7 Dias</button>
-                                    <button class="filter-btn">Últimos 30 Dias</button>
-                                    <button class="filter-btn">Personalizado</button>
-                                </div>
-                            </div>
-
-                            <div class="cards-grid">
-                                <div class="card">
-                                    <h3>Chamados por Status</h3>
-                                    <img src="chart1.png" alt="Gráfico de chamados por status" />
-                                </div>
-
-                                <div class="card">
-                                    <h3>SLA (Tempo Médio de Resposta)</h3>
-                                    <img src="chart2.png" alt="Gráfico de SLA" />
-                                </div>
-
-                                <div class="card">
-                                    <h3>Chamados por Categoria</h3>
-                                    <img src="chart3.png" alt="Gráfico de chamados por categoria" />
-                                </div>
-
-                                <div class="card">
-                                    <h3>Produtividade da Equipe</h3>
-                                    <img src="chart4.png" alt="Gráfico de produtividade da equipe" />
-                            </div>
-                    </div>
-                </section>
-            </main>
-
-             <div class="chat-bot-widget">
+    <div class="chat-bot-widget">
         <button class="bot-icon" id="open-chat" aria-label="Abrir assistente virtual">
             <i class="bi bi-robot"></i> Ajuda Inteligente
         </button>
-
         <div class="chat-box hidden" id="chat-box">
             <div class="chat-header">
                 <span>Ajuda Inteligente</span>
                 <button id="close-chat" class="close-btn">✖</button>
             </div>
-
             <div class="chat-messages" id="chat-messages">
                 <div class="message bot">
                     <p>Olá! 😊 Sou a assistente virtual do Help-me. Como posso te ajudar hoje?</p>
                 </div>
             </div>
-
             <div class="chat-input">
                 <input type="text" id="user-input" placeholder="Digite sua pergunta..." />
                 <button id="send-btn">Enviar</button>
@@ -108,8 +87,6 @@
     </div>
 
     <script src="chatIA.js" defer></script>
-    
+    <script src="dashboard.js" defer></script>
 </body>
-</html>
-    </body>
 </html>

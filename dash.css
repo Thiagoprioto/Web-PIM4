@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -70,8 +69,24 @@ body, html {
 }
 
 
+/* ==================================
+   CORREÇÃO 2: TAMANHO E LAYOUT
+   ================================== */
+
+/* Esta regra sobrepõe 'width: 95%' do global.css,
+   centralizando o conteúdo e dando uma largura máxima. */
 .content {
-  margin-top: 32px;
+    width: 100%; /* Reseta o 95% do global.css */
+    max-width: 1200px; /* Define uma largura máxima */
+    margin-left: auto; /* Centraliza */
+    margin-right: auto; /* Centraliza */
+    margin-top: 32px;
+    
+    /* Mantém o estilo de 'card' do global.css */
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgb(0 0 0 / 0.1);
 }
 
 .content-header {
@@ -108,32 +123,43 @@ body, html {
   color: white;
 }
 
-/* CARDS DE GRÁFICOS */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+/* CARDS DE GRÁFICOS (do styles.css) */
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    gap: 24px; /* Espaço entre elas */
+    margin-bottom: 32px;
 }
 
-.card {
-  background: var(--card-bg);
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  padding: 16px;
-  transition: transform 0.2s ease;
+.chart-container {
+    background: var(--card-bg, #fff); /* Usa variável ou fallback */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow, 0 8px 25px rgb(0 0 0 / 0.1));
+    transition: transform 0.2s ease;
+    
+    /* ****** CORREÇÃO 2.1: Limita a altura ****** */
+    max-height: 450px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.card:hover {
-  transform: scale(1.02);
+.chart-container:hover {
+    transform: scale(1.005);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
-.card h3 {
-  color: #311e6f;
-  margin-bottom: 12px;
-  font-size: 16px;
+.chart-container h3 {
+    margin-bottom: 16px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    flex-shrink: 0; /* Impede que o 'h3' encolha */
 }
 
-.card img {
-  width: 100%;
-  border-radius: 8px;
+/* Garante que o canvas seja responsivo DENTRO do container */
+.chart-container canvas {
+    max-width: 100%;
+    max-height: 100%;
 }
