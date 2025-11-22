@@ -13,58 +13,68 @@
 </head>
 <body>
     <aside class="sidebar">
-        </aside>
+        <div class="logo">
+            <span class="logo-icon">H</span>
+            <span class="logo-text">Help-me</span>
+        </div>
+        <nav>
+           <ul>
+                <li><a href="dashboard.html" class="nav-item"> Dashboard</a></li>
+                <li><a href="index.html" class="nav-item"> Abrir Chamado</a></li>
+                <li><a href="configuração.html" class="nav-item"> Configurações</a></li>
+                <li><a href="login.html" class="nav-item">Sair</a></li>
+           </ul>
+        </nav>
+    </aside>
 
     <main>
         <header class="main-header">
-            </header>
+            <div class="header-icons">
+                <button class="icon-btn" aria-label="Notificações">
+                    <i class="bi bi-bell"></i>
+                </button>
+                <button class="icon-btn profile" aria-label="Perfil do usuário">
+                    <i class="bi bi-person-circle"></i>
+                </button>
+            </div>
+        </header>
 
         <section class="content">
             
             <div class="ticket-details-container">
                 <div class="ticket-main-header">
-                    <h2>Problema de conexão de VPN</h2>
-                    <span class="status em-analise">Em Análise</span>
+                    <h2 id="detalhe-titulo">Carregando...</h2>
+                    <span id="detalhe-status" class="status">...</span>
                 </div>
 
                 <div class="ticket-body">
                     <div class="ticket-description">
                         <h3>Descrição do Problema</h3>
-                        <p>A VPN não conecta corretamente ao tentar acessar os servidores da empresa. O erro "Conexão Falhou - Código 809" é exibido. Já tentei reiniciar o computador e o modem, mas o problema persiste.</p>
-                        <p>Isso está impedindo o acesso ao sistema de faturamento.</p>
+                        <p id="detalhe-descricao">...</p>
                     </div>
                     
                     <div class="ticket-metadata">
                         <h3>Detalhes</h3>
                         <ul>
-                            <li><strong>Solicitante:</strong> <span>Ana Souza</span></li>
-                            <li><strong>Data:</strong> <span>12/11/2025</span></li>
-                            <li><strong>Categoria:</strong> <span>Rede / VPN</span></li>
-                            <li><strong>Prioridade:</strong> <span class="priority-alta">Alta</span></li>
+                            <li><strong>Solicitante:</strong> <span id="detalhe-solicitante">...</span></li>
+                            <li><strong>Data:</strong> <span id="detalhe-data">...</span></li>
+                            <li><strong>Categoria:</strong> <span id="detalhe-categoria">...</span></li>
+                            <li><strong>Prioridade:</strong> <span id="detalhe-prioridade">...</span></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="ticket-history">
                     <h3>Histórico de Atualizações</h3>
-                    <div class="history-item">
-                        <p class="history-meta"><strong>Técnico (João Silva)</strong> comentou em 12/11/2025 às 14:30</p>
-                        <p class="history-comment">"Recebi o chamado. Ana, por favor, tente executar o reset de protocolo de rede (ipconfig /flushdns) e tente novamente."</p>
-                    </div>
-                    <div class="history-item">
-                        <p class="history-meta"><strong>Usuário (Ana Souza)</strong> comentou em 12/11/2025 às 14:45</p>
-                        <p class="history-comment">"Fiz o procedimento, mas o erro continua o mesmo."</p>
-                    </div>
-                    <div class="history-item bot">
-                        <p class="history-meta"><strong>Sistema</strong> atualizou em 12/11/2025 às 14:20</p>
-                        <p class="history-comment">"Chamado criado e atribuído a João Silva."</p>
+                    <div id="historico-lista">
+                        <p style="color:#888; font-style: italic;">Carregando histórico...</p>
                     </div>
                 </div>
 
                 <div class="ticket-reply">
                     <h3>Adicionar Resposta</h3>
-                    <form action="#">
-                        <textarea rows="5" placeholder="Digite sua resposta ou atualização..."></textarea>
+                    <form id="form-resposta">
+                        <textarea id="texto-resposta" rows="5" placeholder="Digite sua resposta ou atualização..."></textarea>
                         <button type="submit" class="new-ticket-btn">Enviar Resposta</button>
                     </form>
                 </div>
@@ -72,8 +82,29 @@
 
         </section>
     </main>
-           
-    <script src="scripts.js" defer></script>
+    
+    <div class="chat-bot-widget">
+        <button class="bot-icon" id="open-chat" aria-label="Abrir assistente virtual">
+            <i class="bi bi-robot"></i> Ajuda Inteligente
+        </button>
+        <div class="chat-box hidden" id="chat-box">
+            <div class="chat-header">
+                <span>Ajuda Inteligente</span>
+                <button id="close-chat" class="close-btn">✖</button>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot">
+                    <p>Olá! 😊 Sou a assistente virtual do Help-me. Como posso te ajudar hoje?</p>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Digite sua pergunta..." />
+                <button id="send-btn">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="detalhes.js" defer></script>
     <script src="chatIA.js" defer></script>
     
 </body>
